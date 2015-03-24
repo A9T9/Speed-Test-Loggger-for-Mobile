@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BaseView 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:image="clr-namespace:ConnectionLogger.Models.Extensions;assembly=ConnectionLogger"
+    Icon="Icon.png"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:custom="clr-namespace:XFormsRadioButton.CustomControls;assembly=XFormsRadioButton"
+    x:Class="ConnectionLogger.Views.OpenLogPage"
+    Title="{Binding Title}"><!--xmlns:calcium="clr-namespace:Outcoder.UI.Xaml;assembly=Outcoder.Calcium"-->
+
+
+  <Grid
+    Padding="15">
+    <ListView x:Name="listView"
+            ItemsSource="{Binding Children}"
+            SelectedItem="{Binding SelectedChild, Mode=TwoWay}"
+            ItemTapped="ItemTapped"
+            >
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell >
+          <ViewCell.View>
+            <StackLayout
+                Orientation="Horizontal">
+              <Label Text="{Binding Name}"
+                     
+                      HeightRequest="100"
+                      HorizontalOptions="FillAndExpand" />
+              
+            </StackLayout>
+
+          </ViewCell.View>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+
+  </Grid>
+  
+</BaseView>

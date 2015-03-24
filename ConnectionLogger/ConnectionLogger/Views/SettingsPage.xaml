@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BaseView 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:image="clr-namespace:ConnectionLogger.Models.Extensions;assembly=ConnectionLogger"
+    Icon="Icon.png"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:custom="clr-namespace:XFormsRadioButton.CustomControls;assembly=XFormsRadioButton"
+    x:Class="ConnectionLogger.Views.SettingsPage"
+    Title="{Binding Title}"><!--xmlns:calcium="clr-namespace:Outcoder.UI.Xaml;assembly=Outcoder.Calcium"-->
+
+
+  <ScrollView>
+    
+  <StackLayout
+    HorizontalOptions="StartAndExpand">
+    <Label Text="Download URL"
+           VerticalOptions="Start"
+           HorizontalOptions="Start" />
+  <custom:BindableRadioGroup x:Name="urlRadioGroup" 
+         ItemsSource="{Binding Path=UrlOptions.Values}" 
+         VerticalOptions="Start" /><!--SelectedIndex="{Binding SelectedIndexForUrl, Mode=TwoWay}"-->
+    <Entry IsEnabled="{Binding IsUrlEnabled}"
+           VerticalOptions="Start"
+           Text="{Binding DownloadURL, Mode=TwoWay}"
+           WidthRequest="480"
+           HorizontalOptions="StartAndExpand" />
+
+    <Label Text="Date and Time Format"
+           VerticalOptions="Start"
+           HorizontalOptions="Start" />
+    <custom:BindableRadioGroup x:Name="dateRadioGroup"
+           ItemsSource="{Binding Path=DateOptions.Values}"
+           VerticalOptions="Start" />
+
+    <Label Text="Speed Units"
+           VerticalOptions="Start"
+           HorizontalOptions="Start" />
+    <custom:BindableRadioGroup x:Name="speedRadioGroup"
+           ItemsSource="{Binding Path=SpeedOptions.Values}"
+           VerticalOptions="Start" />
+    <Label Text="Lof File"
+           VerticalOptions="Start"
+           HorizontalOptions="Start" />
+   <Entry VerticalOptions="Start"
+          Text="{Binding LogFile}"
+           WidthRequest="480"
+           HorizontalOptions="StartAndExpand" />
+  <Label Text="Check connection every"
+           VerticalOptions="Start"
+           HorizontalOptions="Start" />
+   <Picker VerticalOptions="Start"
+           x:Name="checkPicker"
+           WidthRequest="480"
+           HorizontalOptions="StartAndExpand" />
+    <Button
+      Text="Open Log File..."
+      Clicked="OpenLog"/>
+</StackLayout>
+  </ScrollView>
+
+</BaseView>

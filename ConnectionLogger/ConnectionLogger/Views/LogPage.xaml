@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BaseView 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:image="clr-namespace:ConnectionLogger.Models.Extensions;assembly=ConnectionLogger"
+    Icon="Icon.png"
+    xmlns:mycontrols="clr-namespace:ConnectionLogger.Controls;assembly=ConnectionLogger"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:custom="clr-namespace:XFormsRadioButton.CustomControls;assembly=XFormsRadioButton"
+    x:Class="ConnectionLogger.Views.LogPage"
+    Title="Log"><!--xmlns:calcium="clr-namespace:Outcoder.UI.Xaml;assembly=Outcoder.Calcium"-->
+
+  
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="80"/>
+      </Grid.RowDefinitions>
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="50"/>
+          <RowDefinition Height="80"/>
+          
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition />
+          <ColumnDefinition />
+          <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Image Source="ok.png"/>
+        <Image Source="change.png" Grid.Column="1"/>
+        <Image Source="error.png" Grid.Column="2"/>
+      
+        <Switch IsToggled="{Binding ShowStatusOk, Mode=TwoWay}" HorizontalOptions="Center" Grid.Row="1"/>
+        <Switch IsToggled="{Binding ShowStatusChanged, Mode=TwoWay}" HorizontalOptions="Center" Grid.Row="1" Grid.Column="1"/>
+        <Switch IsToggled="{Binding ShowStatusError, Mode=TwoWay}" HorizontalOptions="Center" Grid.Row="1" Grid.Column="2"/>
+      </Grid>
+      <ListView x:Name="listView"
+              ItemsSource="{Binding Children}"
+              HasUnevenRows="True"
+              Grid.Row="1"
+            >
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <mycontrols:LogCell/>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+      <StackLayout
+        Grid.Row="2">
+        <Label Text="{Binding StatusText}"
+         VerticalOptions="Start"
+         HorizontalOptions="Start" />
+      <Label Text="{Binding StatusText2}"
+         VerticalOptions="Start"
+         HorizontalOptions="Start" />
+      </StackLayout>
+      
+    </Grid>
+</BaseView>

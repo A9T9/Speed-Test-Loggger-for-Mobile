@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BaseView 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:image="clr-namespace:ConnectionLogger.Models.Extensions;assembly=ConnectionLogger"
+    Icon="Icon.png"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:custom="clr-namespace:XFormsRadioButton.CustomControls;assembly=XFormsRadioButton"
+    x:Class="ConnectionLogger.Views.AboutPage"
+    Title="{Binding Title}"><!--xmlns:calcium="clr-namespace:Outcoder.UI.Xaml;assembly=Outcoder.Calcium"-->
+
+
+  <ScrollView>
+    
+  <StackLayout
+    Padding="15"
+    HorizontalOptions="StartAndExpand">
+    <Label Text="Created by CSS"
+           VerticalOptions="Start"
+           HorizontalOptions="Start" />
+    <Label Text="Developed in Visual C# 2013"
+           VerticalOptions="Start"
+           HorizontalOptions="Start" />
+    <Label Text="Copyright © 2015"
+           VerticalOptions="Start"
+           HorizontalOptions="Start" />
+  
+</StackLayout>
+  </ScrollView>
+
+</BaseView>

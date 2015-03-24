@@ -1,0 +1,8 @@
+syntax: glob
+*/bin/*
+*/obj/*
+*/Bin/*
+libs/*
+*.zip
+docs/*
+*.apk

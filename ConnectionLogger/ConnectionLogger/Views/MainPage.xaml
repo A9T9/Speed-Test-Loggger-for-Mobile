@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:image="clr-namespace:ConnectionLogger.Models.Extensions;assembly=ConnectionLogger"
+    Icon="Icon.png"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mycontrols="clr-namespace:ConnectionLogger.Controls;assembly=ConnectionLogger"
+    xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+    x:Class="ConnectionLogger.Views.MainPage"
+    Title="{Binding Title}"><!--xmlns:calcium="clr-namespace:Outcoder.UI.Xaml;assembly=Outcoder.Calcium"-->
+
+  <TabbedPage.ToolbarItems>
+    <ToolbarItem Name="Start"
+        Priority="1"
+        Order="1"
+        Command="{Binding StartCommand}"/><!--Icon="{image:ImageResource ConnectionLogger.Resources.image0.png}"-->
+  
+    <ToolbarItem Name="Stop"
+        Priority="2"
+        Order="1"
+        Command="{Binding StopCommand}"/>
+    <ToolbarItem Name="Test Now"
+        Priority="3"
+        Order="1"
+        Command="{Binding TestCommand}"/>
+    <ToolbarItem Name="Help"
+        Priority="2"
+        Order="2"
+        Command="{Binding HelpCommand}"/>
+    <ToolbarItem Name="Settings"
+        Priority="1"
+        Order="2"
+        Command="{Binding SettingsCommand}"/>
+    <ToolbarItem Name="About"
+        Priority="3"
+        Order="2"
+        Command="{Binding AboutCommand}"/>
+  </TabbedPage.ToolbarItems>
+  
+  <!--<StackLayout
+    >
+  
+   
+    <ActivityIndicator
+		Color="Red" 
+		HorizontalOptions="Center"
+        VerticalOptions="Center"
+		IsRunning="{Binding IsBusy}"
+		IsVisible="{Binding IsBusy}"/>
+</StackLayout>-->
+
+</TabbedPage>

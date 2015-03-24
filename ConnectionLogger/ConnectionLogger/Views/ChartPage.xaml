@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BaseView 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:image="clr-namespace:ConnectionLogger.Models.Extensions;assembly=ConnectionLogger"
+    Icon="Icon.png"
+    xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:custom="clr-namespace:XFormsRadioButton.CustomControls;assembly=XFormsRadioButton"
+    x:Class="ConnectionLogger.Views.ChartPage"
+    Title="Chart"><!--xmlns:calcium="clr-namespace:Outcoder.UI.Xaml;assembly=Outcoder.Calcium"-->
+
+  
+
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="0"/>
+        <RowDefinition Height="100"/>
+        <RowDefinition Height="80"/>
+      </Grid.RowDefinitions>
+
+      <chart:SfChart x:Name="chart"
+                     VerticalOptions="StartAndExpand">
+        <chart:SfChart.PrimaryAxis>
+          <chart:DateTimeAxis
+            Minimum="{Binding MinTime}"
+            Maximum="{Binding MaxTime}">
+            <chart:DateTimeAxis.Title>
+              <chart:ChartAxisTitle Text="Timeline"/>
+            </chart:DateTimeAxis.Title>
+          </chart:DateTimeAxis>
+        </chart:SfChart.PrimaryAxis>
+
+        <chart:SfChart.SecondaryAxis>
+          <chart:NumericalAxis x:Name ="numAxis"/>
+        </chart:SfChart.SecondaryAxis>
+
+        <chart:SfChart.Series>
+          <chart:AreaSeries
+            Color="Yellow"
+            ItemsSource = "{Binding OfflineItems}"/>
+          
+          <chart:AreaSeries
+            Color="Blue"
+            ItemsSource = "{Binding LogChartItems}"/>
+        </chart:SfChart.Series>
+
+      </chart:SfChart>
+      <!--<Label
+        Grid.Row="1"
+        BackgroundColor="Yellow"
+       >
+        <Label.FormattedText>
+          <FormattedString>
+            <FormattedString.Spans>
+              <Span Text="No Internet Connection" ForegroundColor="Black" FontSize="20" />
+             </FormattedString.Spans>
+          </FormattedString>
+        </Label.FormattedText>
+
+      </Label>-->
+
+      <StackLayout
+        WidthRequest="480"
+        Orientation = "Horizontal"
+        VerticalOptions="Start"
+        HorizontalOptions="StartAndExpand"
+              Grid.Row="2">
+        <Label
+        Text="Show last"
+         VerticalOptions="Center"
+         HorizontalOptions="Start" />
+        <Picker
+          WidthRequest="300"
+           x:Name="chartPicker"
+           HorizontalOptions="StartAndExpand" />
+      </StackLayout>
+
+      <StackLayout
+        Grid.Row="3">
+        <Label Text="{Binding StatusText}"
+         VerticalOptions="Start"
+         HorizontalOptions="Start" />
+        <Label Text="{Binding StatusText2}"
+           VerticalOptions="Start"
+           HorizontalOptions="Start" />
+      </StackLayout>
+    </Grid>
+    
+  
+</BaseView>
